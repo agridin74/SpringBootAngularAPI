@@ -1,0 +1,9 @@
+<h5>All flowers</h5>
+<div *ngFor="let flow of flowers">
+	<a [routerLink]="['/flowers', flow.id]" style="color:black">
+		<span class="badge badge-dark">
+			{{flow.id}}
+		</span>
+		 -->> {{ flow.name }}
+	</a>
+</div>

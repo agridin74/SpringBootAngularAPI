@@ -1,0 +1,45 @@
+<h3>Add flower</h3>
+<div [hidden]="submitted">
+	<form #addFlowerForm="ngForm">
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" class="form-control" id="name" placeholder="Give Flower's Name"
+			 required [(ngModel)]="flower.name" name="name" #name="ngModel">
+			 <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+			 	Name is required
+			 </div>
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label>
+			<input type="text" class="form-control" id="description" placeholder="Give Flower's Description"
+			 required [(ngModel)]="flower.description" name="description" #description="ngModel">
+			 <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+			 	Description is required
+			 </div>
+		</div>
+		<div class="form-group">
+			<label for="price">Price</label>
+			<input type="number" class="form-control" id="price" placeholder="Give Flower's Price"
+			 required [(ngModel)]="flower.price" name="price" #price="ngModel">
+			 <div [hidden]="price.valid || price.pristine" class="alert alert-danger">
+			 	Price is required
+			 </div>
+		</div>
+		<div class="btn-group btn-group-sm">
+			<button class="btn btn-dark" (click)="goBack()">Back</button>
+			<button class="btn btn-dark" (click)="addFlower()" 
+			[disabled]="!addFlowerForm.form.valid">Add</button>
+		</div>
+	</form>
+</div>
+<div [hidden]="!submitted">
+	<p>Submitted Successfully! -->> 
+		<span class="badge badge-light">
+			{{flower.name}} {{flower.description}} 
+		</span>
+	</p>
+	<div class="btn-group btn-group-sm">
+		<button class="btn btn-dark" (click)="goBack()">Back</button>
+		<button class="btn btn-dark" (click)="newFlower(); addFlowerForm.reset()">Continue</button>
+	</div>
+</div>
