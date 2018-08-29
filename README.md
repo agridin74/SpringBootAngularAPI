@@ -1,2 +1,2 @@
 # SpringBootAngularAPI
-# Java SpringBoot Angular example
+# Java SpringBoot Angular REST API example
